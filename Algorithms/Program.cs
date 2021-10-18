@@ -10,8 +10,8 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            InsertionSorting num = new InsertionSorting();
-            num.Inputs();//calling method
+            PrimeNo num = new PrimeNo();
+            num.Prime();//calling method
             Console.ReadLine();
 
         }
