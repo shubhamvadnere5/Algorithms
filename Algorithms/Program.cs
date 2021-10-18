@@ -9,41 +9,26 @@ namespace Algorithms
 {
     class Program
     {
-
-        static int BinarySearch(int[] array, int item)
+        static void Main(string[] args)
         {
-            int left = 0;
-            int right = array.Length - 1;
-
-            while (left <= right)//Checking if array has more than two elements in it.
-            {
-                var middle = (left + right) / 2;//Finding Middle Element
-
-                if (array[middle] == item)
-                    return middle;
-
-                if (item < array[middle])
-                    right = middle - 1;
-                else
-                    left = middle + 1;
-            }
-
-            return -1;
-        }
-
-
-        // Driver method to test above
-        public static void Main()
-        {
-            var numbers = new[] { 1, 5, 0, 34, 3, 9, 67, 27 };
-
-            Console.WriteLine("Enter number to be search");
-            Array.Sort(numbers);//For Binary Search Array Has to be Sorted
-            int num = Convert.ToInt32(Console.ReadLine());
-            var index = BinarySearch(numbers, num);
-            Console.WriteLine("It is present at index:-");
-            Console.WriteLine(index);
+            List<int> list = new List<int>();
+            //Adding Elements in a List
+            list.Add(1);
+            list.Add(5);
+            list.Add(7);
+            list.Add(3);
+            list.Add(17);
+            list.Add(10);
+            list.Add(13);
+            list.Add(9);
+            Console.WriteLine("Unsorted List");
+            list.ForEach(Console.WriteLine);//Displaying UnSorted List
+            Sorting obj = new Sorting();
+            obj.BubbleSort(list);
+            Console.WriteLine("\nSorted List");
+            list.ForEach(Console.WriteLine);//Displaying Sorted List
             Console.ReadLine();
+
         }
     }
 }
