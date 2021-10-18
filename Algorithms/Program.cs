@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,41 +9,41 @@ namespace Algorithms
 {
     class Program
     {
-        static void Main(string[] args)
+
+        static int BinarySearch(int[] array, int item)
         {
-            //Receive Words from User  
-            Console.Write("Enter first word:");
-            string firstWord = Console.ReadLine();
-            Console.Write("Enter second word:");
-            string secondWord = Console.ReadLine();
+            int left = 0;
+            int right = array.Length - 1;
 
-            //step 1  
-            char[] char1 = firstWord.ToLower().ToCharArray();
-            char[] char2 = secondWord.ToLower().ToCharArray();
-
-            //Step 2  
-            Array.Sort(char1);
-            Array.Sort(char2);
-
-            //Step 3  
-            string NewWord1 = new string(char1);
-            string NewWord2 = new string(char2);
-
-            //Step 4  
-            //ToLower allows to compare the words in same case, in this case, lower case.  
-            if (NewWord1 == NewWord2)
+            while (left <= right)//Checking if array has more than two elements in it.
             {
-                Console.WriteLine("Yes! Words are Anagrams");
+                var middle = (left + right) / 2;//Finding Middle Element
+
+                if (array[middle] == item)
+                    return middle;
+
+                if (item < array[middle])
+                    right = middle - 1;
+                else
+                    left = middle + 1;
             }
-            else
-            {
-                Console.WriteLine("No! Words are not Anagrams");
-            }
+
+            return -1;
+        }
+
+
+        // Driver method to test above
+        public static void Main()
+        {
+            var numbers = new[] { 1, 5, 0, 34, 3, 9, 67, 27 };
+
+            Console.WriteLine("Enter number to be search");
+            Array.Sort(numbers);//For Binary Search Array Has to be Sorted
+            int num = Convert.ToInt32(Console.ReadLine());
+            var index = BinarySearch(numbers, num);
+            Console.WriteLine("It is present at index:-");
+            Console.WriteLine(index);
             Console.ReadLine();
         }
     }
-
-
-
-
 }
