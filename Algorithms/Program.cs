@@ -10,8 +10,8 @@ namespace Algorithms
     {
         static void Main(string[] args)
         {
-            PrimeNo num = new PrimeNo();
-            num.Prime();//calling method
+            PrimeNandPalindrome num = new PrimeNandPalindrome();
+            num.PrimeandPalindrome();//calling method
             Console.ReadLine();
 
         }
